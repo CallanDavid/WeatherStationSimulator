@@ -6,9 +6,6 @@ namespace WeatherStationSimulator
 {
     internal class Program
     {
-
-
-
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the amount of days you want to forecast:");
@@ -32,7 +29,6 @@ namespace WeatherStationSimulator
             Console.WriteLine($"The average temperature is coming out as {CalculateAverage(temperature)}");
             Console.ReadKey();
         }
-
         static double CalculateAverage(int[] temperature)
         {
             double sum = 0;
@@ -42,16 +38,13 @@ namespace WeatherStationSimulator
                 sum += temperature[i];
             }
 
-            //foreach (int i in temperature)
-            //{
-            //    sum += i;
-            //}
+            //  foreach (int i in temperature)
+            //  {
+            //      sum += i;
+            //  }
 
-
-            // temperatuer.Length is the amount of items inside of temperature
+            // temperature.Length is the amount of items inside of temperature
             double average = sum / temperature.Length;
-            Console.WriteLine("Average is supposed to be " + average);
-
             return average;
         }
 
