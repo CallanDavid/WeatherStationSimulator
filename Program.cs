@@ -26,7 +26,11 @@ namespace WeatherStationSimulator
             // double averageTemp = CalculateAverage(temperature);
             // The above comment is an example that you can use the method "CalculateAverage" inside the Main Method
 
-            Console.WriteLine($"The average temperature is coming out as {CalculateAverage(temperature)}");
+            Console.WriteLine($"The average temperature is: {CalculateAverage(temperature)}");
+            Console.WriteLine($"The max temp was: {temperature.Max()}");
+            Console.WriteLine($"The min temp was: {temperature.Min()}");
+            Console.WriteLine($"The min temp was: {MinTemperature(temperature)}");
+
             Console.ReadKey();
         }
         static double CalculateAverage(int[] temperature)
@@ -46,6 +50,17 @@ namespace WeatherStationSimulator
             // temperature.Length is the amount of items inside of temperature
             double average = sum / temperature.Length;
             return average;
+        }
+
+        static int MinTemperature(int[] temperature) // How to manually calculate the minimum temperature yourself
+        {
+            int min = temperature[0];
+            foreach (int temp in temperature)
+            {
+                if (temp < min)
+                    min = temp;
+            }
+            return min;
         }
 
     }
