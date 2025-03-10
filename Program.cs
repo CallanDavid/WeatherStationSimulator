@@ -8,7 +8,7 @@ namespace WeatherStationSimulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the amount of days you want to forecast:");
+            Console.WriteLine("Enter the amount of days you want to simulate:");
             int days = int.Parse(Console.ReadLine());
 
             int[] temperature = new int[days];
@@ -29,10 +29,37 @@ namespace WeatherStationSimulator
             Console.WriteLine($"The average temperature is: {CalculateAverage(temperature)}");
             Console.WriteLine($"The max temp was: {temperature.Max()}");
             Console.WriteLine($"The min temp was: {temperature.Min()}");
-            Console.WriteLine($"The min temp was: {MinTemperature(temperature)}");
-
+            //Console.WriteLine($"The min temp was: {MinTemperature(temperature)}");
+            Console.WriteLine($"The most common condition was: {MostCommonCondition(weather)}");
+            
             Console.ReadKey();
         }
+
+        static string MostCommonCondition(string[] conditions)
+        {
+            int count = 0;
+            string mostCommon = conditions[0];
+
+            for (int i = 0; i < conditions.Length; i++)
+            {   // 1st Iteration "Sunny"
+                int tempCount = 0;
+                for (int j = 0; j < conditions.Length; j++)
+                {
+                    if (conditions[i] == conditions[j])
+                    {
+                        tempCount++;
+                    }
+                    if (tempCount > count)
+                    {
+                        count = tempCount;
+                        mostCommon = conditions[i]; 
+                    }
+                }
+            }
+            return mostCommon;
+        }
+
+
         static double CalculateAverage(int[] temperature)
         {
             double sum = 0;
