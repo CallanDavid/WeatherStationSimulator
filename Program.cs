@@ -30,7 +30,7 @@ namespace WeatherStationSimulator
             Console.WriteLine($"The max temp was: {temperature.Max()}");
             Console.WriteLine($"The min temp was: {temperature.Min()}");
             //Console.WriteLine($"The min temp was: {MinTemperature(temperature)}");
-            Console.WriteLine($"The most common condition was: {MostCommonCondition(weather)}");
+            Console.WriteLine($"The most common condition was: {MostCommonCondition(weatherConditions)}");
             
             Console.ReadKey();
         }
